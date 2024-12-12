@@ -1,0 +1,51 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Добро пожаловать в Book Notes!</h1>
+
+    <a href="/books/new" class="button">Добавить новую книгу</a>
+
+    <h2>Список прочитанных книг:</h2>
+
+    <div class="sorting">
+        <label for="sort">Сортировать по:</label>
+        <select id="sort" onchange="location = this.value;">
+            <option value="/" <%= currentSort === 'default' ? 'selected' : '' %>>Дата добавления</option>
+            <option value="/?sort=title" <%= currentSort === 'title' ? 'selected' : '' %>>Название</option>
+            <option value="/?sort=author" <%= currentSort === 'author' ? 'selected' : '' %>>Автор</option>
+            <option value="/?sort=rating" <%= currentSort === 'rating' ? 'selected' : '' %>>Рейтинг</option>
+        </select>
+    </div>
+
+    <ul class="book-list">
+        <% books.forEach(book => { %>
+            <li class="book-item">
+                <% if (book.cover_id) { %>
+                    <img src="https://covers.openlibrary.org/b/id/<%= book.cover_id %>-M.jpg" alt="Обложка <%= book.title %>" class="book-cover">
+                <% } else { %>
+                    <img src="/images/default-cover.jpg" alt="Без обложки" class="book-cover">
+                <% } %>
+                <div class="book-details">
+                    <h3><a href="/books/<%= book.id %>"><%= book.title %></a></h3>
+                    <p><strong>Автор:</strong> <%= book.author %></p>
+                    <p><strong>Рейтинг:</strong> <%= book.rating %>/5</p>
+                    <div class="actions">
+                        <a href="/books/<%= book.id %>/edit" class="edit-button">Редактировать</a>
+                        <form action="/books/<%= book.id %>?_method=DELETE" method="POST" class="delete-form" onsubmit="return confirm('Вы уверены, что хотите удалить эту книгу?');">
+                            <button type="submit" class="delete-button">Удалить</button>
+                        </form>
+                    </div>
+                </div>
+            </li>
+        <% }) %>
+    </ul>
+</div>
+</body>
+</html>

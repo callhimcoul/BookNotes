@@ -1,0 +1,189 @@
+/* public/stylesheets/style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.container {
+  width: 80%;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+h1, h2, h3 {
+  color: #ffffff;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #bb86fc;
+}
+
+a:hover {
+  color: #3700b3;
+}
+
+.button, .edit-button, .delete-button, .submit-button, .back-link {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: #bb86fc;
+  color: #000000;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.button:hover, .edit-button:hover, .delete-button:hover, .submit-button:hover, .back-link:hover {
+  background-color: #3700b3;
+  color: #ffffff;
+}
+
+.sorting {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.sorting label {
+  margin-right: 10px;
+  color: #e0e0e0;
+}
+
+.sorting select {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+}
+
+.book-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.book-item {
+  display: flex;
+  align-items: center;
+  background-color: #2c2c2c;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.book-item:hover {
+  background-color: #3a3a3a;
+}
+
+.book-cover {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.book-cover-large {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+.book-details {
+  flex: 1;
+}
+
+.book-details h3 {
+  margin: 0;
+  font-weight: 300;
+}
+
+.book-details p {
+  margin: 5px 0;
+}
+
+.actions {
+  margin-top: 10px;
+}
+
+.edit-button {
+  background-color: #03dac6;
+  color: #000000;
+  margin-right: 10px;
+}
+
+.edit-button:hover {
+  background-color: #018786;
+  color: #ffffff;
+}
+
+.delete-button {
+  background-color: #cf6679;
+  color: #ffffff;
+}
+
+.delete-button:hover {
+  background-color: #b00020;
+}
+
+.submit-button {
+  background-color: #03dac6;
+  color: #000000;
+}
+
+.submit-button:hover {
+  background-color: #018786;
+  color: #ffffff;
+}
+
+.back-link {
+  background-color: transparent;
+  color: #bb86fc;
+  padding: 0;
+}
+
+.back-link:hover {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.edit-form input[type="text"],
+.edit-form input[type="number"],
+.edit-form textarea,
+form input[type="text"],
+form input[type="number"],
+form textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin: 5px 0 15px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: #3a3a3a;
+  color: #e0e0e0;
+}
+
+.edit-form textarea,
+form textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.delete-form {
+  display: inline;
+}

@@ -1,0 +1,37 @@
+<!-- views/edit.ejs -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Редактировать книгу</h1>
+
+    <form action="/books/<%= book.id %>?_method=PUT" method="POST" class="edit-form">
+        <label for="title">Название:</label><br>
+        <input type="text" id="title" name="title" value="<%= book.title %>" required><br><br>
+
+        <label for="author">Автор:</label><br>
+        <input type="text" id="author" name="author" value="<%= book.author %>"><br><br>
+
+        <label for="isbn">ISBN:</label><br>
+        <input type="text" id="isbn" name="isbn" value="<%= book.isbn %>"><br><br>
+
+        <label for="description">Описание:</label><br>
+        <textarea id="description" name="description"><%= book.description %></textarea><br><br>
+
+        <label for="rating">Рейтинг (1-5):</label><br>
+        <input type="number" id="rating" name="rating" min="1" max="5" value="<%= book.rating %>"><br><br>
+
+        <button type="submit" class="submit-button">Сохранить изменения</button>
+    </form>
+
+    <br>
+    <a href="/books/<%= book.id %>" class="back-link">Вернуться к деталям книги</a> |
+    <a href="/" class="back-link">Вернуться на главную</a>
+</div>
+</body>
+</html>
